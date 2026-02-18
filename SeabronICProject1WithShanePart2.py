@@ -43,11 +43,11 @@ plt.ylabel("|T(jω)| (dB)")
 plt.grid(True, which="both")
 plt.legend()
 plt.title("Frequency Response Sweeping R2")
+plt.savefig("R2_sweep_frequency_response.png", dpi=300, bbox_inches="tight")
 print("R2 sweep metrics:")
 for R2 in R2_vals:
     T = transfer_mag(base["R1"], R2, base["R3"], base["R4"], base["C1"], base["C2"], omega)
     T_max, omega0, w1, w2, bw = metrics_from_curve(omega, T)
     print(f"R2={R2:8g} Ω | Tmax={T_max:.4f}  omega0={omega0:.4e}  BW={bw:.4e}")
-
 
 plt.show()
